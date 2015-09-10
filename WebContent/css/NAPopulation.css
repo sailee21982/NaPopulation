@@ -1,0 +1,36 @@
+.title {
+	font-family: "Arial";
+	font-size: 15px;
+	font-weight: bold;
+	color: blue;
+}
+
+.input {
+	font-family: "Arial";
+	font-size: 15px;
+	color: black;
+}
+
+.buttonstyle {
+	font-family: "Arial";
+	font-size: 35px;
+	font-weight: bold;
+	color: red;
+}
+.table {
+   border: 2px solid green;
+   
+}
+.th {
+    border: 2px solid green;
+   	font-family: "Arial";
+	font-size: 15px;
+	font-weight: bold;
+	color: blue;
+}
+.td {
+    border: 2px solid green;
+   	font-family: "Arial";
+	font-size: 15px;
+
+} 

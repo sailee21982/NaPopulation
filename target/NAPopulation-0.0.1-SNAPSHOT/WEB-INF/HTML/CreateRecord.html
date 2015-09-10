@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#btn1").click(function(){
+
+        var obj = {};
+        obj["fname"] = $('#firstName').val();
+        obj["lname"] = $('#lastName').val();
+        obj["gender"] = $('#gender').val();
+        obj["city"] = $('#city').val();
+        obj["country"] = $('#country').val();    
+        obj["zipCode"] = $('#zipCode').val();
+        obj["dob"] = $('#zipCode').val();  
+        obj["HouseholdIncome"] = $('#hhi').val(); 
+        
+        var strObj = JSON.stringify(obj);
+		console.log(JSON.stringify(obj));
+        
+        $.ajax({
+            type: 'POST',
+            data: strObj,
+            url: 'record.htm',
+            dataType: "json",
+            success: function(data){
+                alert("Record Inserted");
+            },
+            error: function(){
+                alert("Failure");
+            }
+        });        
+        
+		
+	});
+});
+</script>
+<style type="text/css">
+.title {
+	font-family: "Arial";
+	font-size: 15px;
+	font-weight: bold;
+	color: blue;
+}
+
+.input {
+	font-family: "Arial";
+	font-size: 15px;
+	color: black;
+}
+</style>
+</head>
+<body>
+	<h1>Create Record</h1>
+	<div>
+		<p>
+			<span class="title">First Name:</span><input
+				type="text" id="firstName" class="input"></input>
+		</p>
+		<p>
+			<span class="title">Last Name:</span> <span><input type="text"
+				id="lastName" class="input"></input></span>
+		</p>
+		<p>
+			<span class="title">Gender:</span> <span><input type="radio"
+				id="gender" value="M"></input>Male</span> <span><input
+				type="radio" id="gender" value="F"></input>Female</span>
+		</p>
+		<p>
+			<span class="title">First Line Address:</span> <span><input
+				type="text" id="streetAddress" class="input"></input></span>
+		</p>
+		<p>
+			<span class="title">City:</span> <span><input type="text"
+				id="city" class="input"></input></span>
+		</p>
+		<p>
+			<span class="title">State:</span> <span><input type="text"
+				id="state" class="input"></input></span>
+		</p>
+		<p>
+			<span class="title">Country:</span> <span><input type="text"
+				id="country" class="input"></input></span>
+		</p>
+		<p>
+			<span class="title">Zip Code:</span> <span><input type="text"
+				id="zipCode" class="input"></input></span>
+		</p>
+		<p>
+			<span class="title">Date Of Birth:</span> <span><input
+				type="date" id="dob" class="input"></input></span>
+		</p>
+		<p>
+			<span class="title">Annual House Hold income:</span>
+		<ul>
+			<li><span><input type="radio" id="hhi" value="1"></input>Less
+					than $40,000</span></li>
+			<li><span><input type="radio" id="hhi" value="2"></input>$40,000
+					&#60; $80,000</span></li>
+			<li><span><input type="radio" id="hhi" value="3"></input>$80,000
+					&#60; $110,000</span></li>
+			<li><span><input type="radio" id="hhi" value="4"></input>Greater
+					than $110,000</span></li>
+		</ul>
+		</div>
+		<button id="btn1">Submit</button>
+
+</body>
+</html>
